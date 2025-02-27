@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./navbar";
 import Home from "./home";
-import Bus from "./Bus";
+import Bus from "./bus";
 import Remainder from "./remainder";
 import Login from "./Login";
 import SignUp from "./SignUp";
