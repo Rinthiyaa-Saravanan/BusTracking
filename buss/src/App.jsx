@@ -3,8 +3,8 @@ import Navbar from "./navbar";
 import Home from "./home";
 import Bus from "./bus";
 import Remainder from "./remainder";
-import Login from "./Login";
-import SignUp from "./SignUp";
+import Login from "./login";
+import SignUp from "./signUp";
 
 function App() {
   return (
