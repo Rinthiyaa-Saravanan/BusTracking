@@ -6,31 +6,38 @@ export default function Bus() {
   const [busNumber, setBusNumber] = useState("");
   const [pickup, setPickup] = useState("");
   const [dropoff, setDropoff] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState({ busNumber: "", pickup: "", dropoff: "" });
   const [arrivalTime, setArrivalTime] = useState("");
   const [nextStop, setNextStop] = useState("");
   const [route, setRoute] = useState("");
 
-  const handleSearch = () => {
-    if (!busNumber.trim() || !pickup.trim() || !dropoff.trim()) {
-      setError("All fields are required");
-      setArrivalTime(""); 
-      setNextStop("");
-      setRoute("");
-    } else {
-      setError("");
-      
-      // Mocked estimated arrival time (5-15 min)
-      const estimatedTime = `Arrives in ${Math.floor(Math.random() * 10) + 5} min`;
-      setArrivalTime(estimatedTime);
+  // ✅ Sample Data for Dropdowns
+  const busNumbers = ["101", "102", "103", "104", "105"];
+  const locations = ["Gandhipuram", "Singanallur", "Ukkadam", "Peelamedu", "RS Puram"];
 
-      // Mocked next stop (For demonstration)
-      const stops = ["Station A", "Station B", "Station C", "Station D"];
-      const nextStopIndex = Math.floor(Math.random() * stops.length);
-      setNextStop(stops[nextStopIndex]);
+  const handleSearch = async () => {
+    let newError = { busNumber: "", pickup: "", dropoff: "" };
 
-      // Mocked bus route
-      setRoute(`Route: ${pickup} → ${stops[nextStopIndex]} → ${dropoff}`);
+    if (!busNumber) newError.busNumber = "Bus number is required!";
+    if (!pickup) newError.pickup = "Pickup location is required!";
+    if (!dropoff) newError.dropoff = "Drop-off location is required!";
+
+    setError(newError);
+
+    // ✅ If any field is empty, stop the search
+    if (newError.busNumber || newError.pickup || newError.dropoff) return;
+
+    try {
+      // ✅ Mocked API Response
+      const estimatedTime = `${Math.floor(Math.random() * 10) + 5} min`;
+      const stopIndex = Math.floor(Math.random() * locations.length);
+      const nextStop = locations[stopIndex];
+
+      setArrivalTime(`Arrives in ${estimatedTime}`);
+      setNextStop(nextStop);
+      setRoute(`Route: ${pickup} → ${nextStop} → ${dropoff}`);
+    } catch (error) {
+      setError({ ...newError, general: "Failed to fetch bus details." });
     }
   };
 
@@ -40,35 +47,44 @@ export default function Bus() {
       <div className="bus-content">
         <h1 className="title">Find Your Bus</h1>
         <p className="description">
-          Enter the bus number, pick-up, and drop-off locations to track your journey.
+          Select the bus number, pick-up, and drop-off locations to track your journey.
         </p>
         <div className="input-group">
-          <input
-            type="text"
-            placeholder="Enter Bus Number"
-            value={busNumber}
-            onChange={(e) => setBusNumber(e.target.value)}
-            className="bus-input"
-          />
-          <input
-            type="text"
-            placeholder="Enter Pick-up Point"
-            value={pickup}
-            onChange={(e) => setPickup(e.target.value)}
-            className="bus-input"
-          />
-          <input
-            type="text"
-            placeholder="Enter Drop-off Point"
-            value={dropoff}
-            onChange={(e) => setDropoff(e.target.value)}
-            className="bus-input"
-          />
+          <div>
+            <select value={busNumber} onChange={(e) => setBusNumber(e.target.value)} className="bus-input">
+              <option value="">Select Bus Number</option>
+              {busNumbers.map((bus) => (
+                <option key={bus} value={bus}>{bus}</option>
+              ))}
+            </select>
+            {error.busNumber && <p className="error-text">{error.busNumber}</p>}
+          </div>
+
+          <div>
+            <select value={pickup} onChange={(e) => setPickup(e.target.value)} className="bus-input">
+              <option value="">Select Pickup Location</option>
+              {locations.map((loc) => (
+                <option key={loc} value={loc}>{loc}</option>
+              ))}
+            </select>
+            {error.pickup && <p className="error-text">{error.pickup}</p>}
+          </div>
+
+          <div>
+            <select value={dropoff} onChange={(e) => setDropoff(e.target.value)} className="bus-input">
+              <option value="">Select Drop-off Location</option>
+              {locations.map((loc) => (
+                <option key={loc} value={loc}>{loc}</option>
+              ))}
+            </select>
+            {error.dropoff && <p className="error-text">{error.dropoff}</p>}
+          </div>
+
           <button className="search-button" onClick={handleSearch}>
             <MapPin className="button-icon" /> Search
           </button>
         </div>
-        {error && <p className="error-message">{error}</p>}
+
         {arrivalTime && (
           <div className="info-box">
             <Clock className="info-icon" />
@@ -89,14 +105,19 @@ export default function Bus() {
         )}
       </div>
 
-      {/* Right Side - Map */}
+      {/* ✅ Right Side - Google Map (Now Shows Coimbatore, Tamil Nadu) */}
       <div className="map-container">
         <iframe
-          title="Bus Map"
+          title="Coimbatore Bus Map"
           className="bus-map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093746!2d144.95373531531576!3d-37.81627974202153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d5df1f07a9f%3A0x5045675218cee17!2sMelbourne%20CBD!5e0!3m2!1sen!2sau!4v1601940990325!5m2!1sen!2sau"
-          allowFullScreen
-        ></iframe>
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.006674440223!2d76.95467577507191!3d11.01684488912252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859ba1938260d%3A0x5c5317e53b487f0!2sCoimbatore%2C%20Tamil%20Nadu%2C%20India!5e0!3m2!1sen!2sin!4v1711467088925!5m2!1sen!2sin"
+          width="100%"
+          height="450"
+          style={{ border: 0, borderRadius: "10px" }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
       </div>
     </div>
   );

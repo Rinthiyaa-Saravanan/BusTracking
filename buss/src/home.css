@@ -6,8 +6,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 40px 20px;
-  background-color: #f8f9fa;
+  padding: 100px 20px;
+  background-color: #1f2124;
 }
 
 /* Hero Section */
@@ -19,12 +19,12 @@
 .hero-section h1 {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #333;
+  color: #fffefe;
 }
 
 .hero-section p {
   font-size: 1.2rem;
-  color: #666;
+  color: #a3a1a1;
   margin-top: 10px;
 }
 
@@ -51,12 +51,12 @@
 }
 
 .explore-button {
-  background-color: #007bff;
+  background-color: #46474a;
   color: white;
 }
 
 .schedule-button {
-  background-color: #007bff;
+  background-color: #46474a;
   color: white;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .feature-card {
-  background: white;
+  background: #46474a;
   padding: 20px;
   width: 250px;
   text-align: center;
@@ -88,17 +88,17 @@
 
 .feature-icon {
   font-size: 60px;
-  color: #007bff;
+  color: #e5eef8;
   margin-bottom: 4px;
 }
 
 .feature-card h3 {
   font-size: 2rem;
   margin-bottom: 4px;
-  color: #333;
+  color: #fafafa;
 }
 
 .feature-card p {
   font-size: 1.2rem;
-  color: #666;
+  color: #ffffff;
 }

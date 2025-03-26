@@ -1,27 +1,32 @@
+/* 🔹 Main Bus Container */
 .bus-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 40px;
-  background-color: #f8f9fa;
+  align-items: flex-start;
+  padding: 90px;
+  background-color: #1f2124;
+  flex-wrap: wrap;
 }
 
+/* 🔹 Left Content Section */
 .bus-content {
   flex: 1;
   max-width: 450px;
 }
 
+/* 🔹 Titles & Descriptions */
 .title {
   font-size: 28px;
   font-weight: bold;
-  color: #333;
+  color: #ffffff;
 }
 
 .description {
   margin-bottom: 20px;
-  color: #666;
+  color: #f8f8f8;
 }
 
+/* 🔹 Input & Search Button */
 .input-group {
   display: flex;
   flex-direction: column;
@@ -33,31 +38,42 @@
   border-radius: 5px;
   margin-bottom: 10px;
   font-size: 16px;
+  background-color: #2a2d32;
+  color: #fff;
 }
 
+.bus-input:focus {
+  outline: 2px solid #1976d2;
+}
+
+/* 🔹 Error Messages */
+.error-text {
+  color: red;
+  font-size: 14px;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+/* 🔹 Search Button */
 .search-button {
   display: flex;
   align-items: center;
   gap: 5px;
   padding: 12px;
-  background-color: #007bff;
+  background-color: #4e4f4f;
   color: white;
   border: none;
   cursor: pointer;
   border-radius: 5px;
   font-size: 16px;
+  transition: 0.3s ease-in-out;
 }
 
 .search-button:hover {
-  background-color: #0056b3;
+  background-color: #161718;
 }
 
-.error-message {
-  color: red;
-  margin-top: 5px;
-  font-size: 14px;
-}
-
+/* 🔹 Information Boxes */
 .info-box {
   display: flex;
   align-items: center;
@@ -65,19 +81,20 @@
   margin-top: 10px;
   font-size: 16px;
   font-weight: bold;
-  color: green;
-  background: #e9f5e9;
+  color: #fff;
+  background: #2a2d32;
   padding: 10px;
   border-radius: 5px;
 }
 
 .info-icon {
-  color: green;
+  color: #00ff00;
 }
 
+/* 🔹 Map Section */
 .map-container {
   flex: 1;
-  height: 500px; /* Increased size */
+  height: 500px;
   margin-left: 40px;
 }
 
@@ -86,4 +103,80 @@
   height: 100%;
   border: none;
   border-radius: 10px;
+}
+
+/* 🔹 Popular Routes Section */
+.popular-routes-container {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #22272e;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(230, 227, 227, 0.1);
+}
+
+/* 🔹 Popular Routes Header */
+.popular-routes-container h2 {
+  text-align: center;
+  color: #00bfff;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* 🔹 Popular Routes Grid */
+.routes-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.routes-column {
+  flex: 1;
+}
+
+/* 🔹 Divider */
+.routes-divider {
+  width: 5px;
+  background-color: #1976d2;
+  border-radius: 5px;
+}
+
+/* 🔹 Sub Headers */
+.routes-column h3 {
+  color: #00bfff;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* 🔹 Route Details */
+.routes-column p {
+  background: #2a2d32;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+.routes-column p:hover {
+  background: #3b3f46;
+  transform: scale(1.02);
+}
+
+/* 🔹 Responsive Design */
+@media (max-width: 768px) {
+  .bus-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .map-container {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .routes-wrapper {
+    flex-direction: column;
+  }
 }

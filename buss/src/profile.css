@@ -1,0 +1,182 @@
+/* ✅ Profile Page Styling */
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 0px); /* ✅ Adjust height considering navbar */
+    margin-top: 0px; /* ✅ Moves profile box down from navbar */
+    background: #1f2124;
+  }
+  
+  .profile-box {
+    background: #d5d5d5;
+    padding: 1px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 450px; /* ✅ Increased width */
+    width: 100%;
+  }
+  
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  /* ✅ Profile Title */
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  /* ✅ Profile Fields */
+  .profile-fields {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 20px 0;
+  }
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input, select {
+    padding: 10px;
+    border: 1px solid #46474a;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* ✅ Gender Dropdown */
+  select {
+    background: #46474a;
+    color: #333;
+    cursor: pointer;
+  }
+  
+  /* ✅ Disabled Inputs */
+  input:disabled, select:disabled {
+    background: #f1f1f1;
+    cursor: not-allowed;
+  }
+  
+  /* ✅ Password Change Checkbox */
+  input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  
+  /* ✅ Profile Buttons */
+  .profile-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+  }
+  
+  button {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 45%;
+    transition: 0.3s ease;
+  }
+  
+  /* ✅ Edit Button */
+  .edit-btn {
+    background: #46474a;
+    color: white;
+  }
+  
+  .edit-btn:hover {
+    background: #0d47a1;
+  }
+  
+  /* ✅ Save Button */
+  .save-btn {
+    background: #388e3c;
+    color: white;
+  }
+  
+  .save-btn:hover {
+    background: #2e7d32;
+  }
+  
+  /* ✅ Skeleton Loader */
+  .skeleton-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 450px;
+    height: 350px;
+    background: rgb(50, 50, 50);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .skeleton {
+    background: #46474a;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    animation: skeleton-loading 1.5s infinite linear;
+  }
+  
+  .skeleton.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+  
+  .skeleton-text {
+    width: 80%;
+    height: 18px;
+  }
+  
+  .skeleton-button {
+    width: 50%;
+    height: 35px;
+    border-radius: 5px;
+  }
+  
+  /* ✅ Skeleton Loading Animation */
+  @keyframes skeleton-loading {
+    0% {
+      background: #ddd;
+    }
+    50% {
+      background: #ccc;
+    }
+    100% {
+      background: #ddd;
+    }
+  }
+  
+  /* ✅ Responsive Design */
+  @media (max-width: 500px) {
+    .profile-container {
+      margin-top: 90px;
+    }
+  
+    .profile-box {
+      width: 90%;
+      padding: 25px;
+    }
+  
+    input, select {
+      font-size: 0.9rem;
+    }
+  
+    button {
+      font-size: 0.9rem;
+    }
+  }
+  

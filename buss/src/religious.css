@@ -1,0 +1,119 @@
+/* Religious Places Page */
+.religious-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: Arial, sans-serif;
+    padding: 60px;
+    background-color: #1f2124;
+}
+
+/* Content Styling */
+.religious-content {
+    width: 75%;
+    line-height: 1.8;
+    color: white;
+}
+
+.religious-header {
+    background: #7c7c7c;
+    color: white;
+    padding: 15px;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Description */
+.religious-description {
+    font-style: italic;
+    font-size: 16px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+    line-height: 1.5;
+}
+
+/* Religious Sections */
+.religious-section {
+    margin: 30px 5%;
+    padding: 15px;
+    border-left: 4px solid #ffcc00;
+    background: #2a2d31;
+    padding-left: 20px;
+    border-radius: 5px;
+}
+
+.religious-section h3 {
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.religious-section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: #ccc;
+}
+
+.religious-section p {
+    font-size: 16px;
+    color: #ccc;
+}
+
+/* Sidebar */
+.religious-sidebar {
+    width: 25%;
+    background: #9b9090;
+    padding-left: 40px;
+    padding-top: 100px;
+    border-left: 2px solid #c01111;
+    margin-left: 50px;
+    padding-bottom: 300px;
+}
+
+.religious-sidebar h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.religious-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.religious-sidebar ul li {
+    padding: 5px 0;
+}
+
+.religious-sidebar ul li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.religious-sidebar ul li a:hover {
+    font-weight: bold;
+    color: #090a0b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .religious-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .religious-content {
+        width: 100%;
+    }
+
+    .religious-section {
+        margin: 20px 2%;
+    }
+
+    .religious-sidebar {
+        width: 100%;
+        text-align: center;
+        border-left: none;
+        border-top: 2px solid #ddd;
+    }
+}
