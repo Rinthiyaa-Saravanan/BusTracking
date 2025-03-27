@@ -4,7 +4,7 @@ import Home from "./home";
 import Bus from "./bus";
 import Remainder from "./remainder";
 import Login from "./login";
-import SignUp from "./signUp";
+import SignUp from "./signup";
 import Profile from "./Profile";
 import Tourism from "./Tourism"; 
 import Nearby from "./nearby";
