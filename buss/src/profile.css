@@ -15,7 +15,7 @@
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
-    max-width: 450px; /* ✅ Increased width */
+    max-width: 400px; /* ✅ Increased width */
     width: 100%;
   }
   
@@ -29,7 +29,7 @@
   /* ✅ Profile Title */
   h2 {
     font-size: 1.8rem;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
   }
   
   /* ✅ Profile Fields */
@@ -37,12 +37,13 @@
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin: 20px 0;
+    margin: 25px 0;
   }
   
   label {
     font-weight: bold;
     margin-bottom: 5px;
+    margin-left: 20px;
   }
   
   input, select {
@@ -50,8 +51,10 @@
     border: 1px solid #46474a;
     border-radius: 5px;
     margin-bottom: 15px;
-    width: 100%;
+    width: 90%;
     transition: all 0.3s ease-in-out;
+    margin-left: 20px;
+    
   }
   
   /* ✅ Gender Dropdown */

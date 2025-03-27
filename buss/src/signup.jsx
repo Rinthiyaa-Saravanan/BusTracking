@@ -62,7 +62,7 @@ const Signup = () => {
         
         {/* 🔹 Redirect to Login if user already has an account */}
         <p className="toggle-text">
-          Already have an account? <span onClick={() => navigate("/login")} className="login-link">Login</span>
+          <span onClick={() => navigate("/login")} className="login-link"> Already have an account?  Login</span>
         </p>
       </div>
     </div>

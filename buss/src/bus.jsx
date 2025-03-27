@@ -21,17 +21,21 @@ export default function Bus() {
     if (!busNumber) newError.busNumber = "Bus number is required!";
     if (!pickup) newError.pickup = "Pickup location is required!";
     if (!dropoff) newError.dropoff = "Drop-off location is required!";
+    if (pickup && dropoff && pickup === dropoff) {
+      newError.dropoff = "Pickup and drop-off locations cannot be the same!";
+    }
 
     setError(newError);
 
-    // ✅ If any field is empty, stop the search
+    // ✅ If any validation fails, stop the search
     if (newError.busNumber || newError.pickup || newError.dropoff) return;
 
     try {
       // ✅ Mocked API Response
       const estimatedTime = `${Math.floor(Math.random() * 10) + 5} min`;
-      const stopIndex = Math.floor(Math.random() * locations.length);
-      const nextStop = locations[stopIndex];
+      const possibleStops = locations.filter((loc) => loc !== pickup && loc !== dropoff);
+      const stopIndex = Math.floor(Math.random() * possibleStops.length);
+      const nextStop = possibleStops[stopIndex];
 
       setArrivalTime(`Arrives in ${estimatedTime}`);
       setNextStop(nextStop);
